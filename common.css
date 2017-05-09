@@ -1,0 +1,334 @@
+﻿/* yui3 reset.css */
+
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+code,
+form,
+fieldset,
+legend,
+input,
+textarea,
+p,
+blockquote,
+th,
+td {
+    margin: 0;
+    padding: 0;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+fieldset,
+img {
+    border: 0;
+}
+
+address,
+caption,
+cite,
+code,
+dfn,
+em,
+strong,
+th,
+var {
+    font-style: normal;
+    font-weight: normal;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: #333;
+}
+
+caption,
+th {
+    text-align: left;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: 100%;
+    font-weight: normal;
+}
+
+q:before,
+q:after {
+    content: '';
+}
+
+abbr,
+acronym {
+    border: 0;
+    font-variant: normal;
+}
+
+sup {
+    vertical-align: text-top;
+}
+
+sub {
+    vertical-align: text-bottom;
+}
+
+input,
+button,
+textarea,
+select {
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    *font-size: 100%;
+}
+
+legend {
+    color: #000;
+}
+
+iframe {
+    display: block;
+}
+
+
+/* yui3 fonts */
+
+body {
+    font-size: 14px;
+    font-family: "Microsoft YaHei";
+    color: #333;
+    -webkit-text-size-adjust: none;
+}
+
+select,
+input,
+button,
+textarea {
+    font: 99% arial, "Microsoft Yahei", helvetica, clean, sans-serif;
+}
+
+table {
+    font-size: inherit;
+    font: 100%;
+}
+
+pre,
+code,
+kbd,
+samp,
+tt {
+    font-family: monospace;
+    *font-size: 108%;
+    line-height: 100%;
+}
+
+
+/* ie下点击出现虚线框 */
+
+a,
+span,
+input,
+select,
+textarea,
+button {
+    outline: none;
+}
+
+
+/* utilities */
+
+.center-block {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.clearfix {
+    *zoom: 1;
+}
+
+.clearfix:before,
+.clearfix:after {
+    display: table;
+    line-height: 0;
+    content: "";
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.l {
+    float: left !important;
+}
+
+.r {
+    float: right !important;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.invisible {
+    visibility: hidden !important;
+}
+
+
+/*! grid system */
+
+.container {
+    position: relative;
+    width: 100%;
+}
+
+.row {
+    overflow: hidden;
+}
+
+.code-wrap {
+    width: 100%;
+    border-top: 1px solid #e6e6e6;
+    border-bottom: 1px solid #e6e6e6;
+    height: 400px;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.css-live-wrap {
+    position: relative;
+    width: 50%;
+    height: 100%;
+    float: left;
+}
+
+.code {
+    width: 50%;
+    height: 100%;
+    box-sizing: border-box;
+    font-size: 14px;
+    background: #ffe;
+    display: block;
+    float: right;
+    padding: 1em;
+    font-family: Consolas, Monaco, monospace;
+    white-space: pre;
+    text-shadow: 0 1px 1px white;
+    overflow-y: scroll;
+    color: red;
+}
+
+summary {
+    position: absolute;
+    cursor: default;
+    left: 0;
+    color: #999;
+    font-size: 14px;
+    line-height: 18px;
+    margin: 20px 0 0 20px;
+    border-left: 2px solid #FF9800;
+    padding: 0 10px;
+    text-shadow: 0 0.2px hsl(0, 0%, 85%);
+    background: linear-gradient(#FF9800, #FF9800) no-repeat;
+    background-size: 100% 1px;
+    background-position: -400px bottom;
+    transition: .5s;
+}
+
+summary:nth-child(2) {
+    margin-top: 60px;
+}
+
+summary:nth-child(3) {
+    margin-top: 100px;
+}
+
+summary:hover {
+    background-position: -0em bottom;
+}
+
+.inline-element:after {
+    content: "\A";
+    white-space: pre;
+}
+
+.linkUrl {
+    display: block;
+    margin: 50px;
+    color: red;
+    font-size: 24px;
+}
+
+
+/*header*/
+.container > header {
+    text-align: center;
+}
+.container > header h1 {
+    font-size: 36px;
+    line-height: 40px;
+    margin: 20px 0;
+    padding: 0;
+    position: relative;
+    font-weight: 300;
+    color: #333;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+}
+.container > header h1 span {
+    font-weight: 700;
+}
+
+.codrops-demos {
+    display: inline-block;
+    margin-bottom: 25px;
+
+}
+.codrops-demos a {
+    display: inline-block;
+    margin: 0px 4px;
+    padding: 15px 16px;
+    color: #333;
+    line-height: 20px;
+    font-size: 13px;
+    text-shadow: 1px 1px 1px #fff;
+    border: 1px solid #fff;
+    background: #ffffff;
+    background: -moz-linear-gradient(top, #ffffff 0%, #f6f6f6 47%, #ededed 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(47%,#f6f6f6), color-stop(100%,#ededed));
+    background: -webkit-linear-gradient(top, #ffffff 0%,#f6f6f6 47%,#ededed 100%);
+    background: -o-linear-gradient(top, #ffffff 0%,#f6f6f6 47%,#ededed 100%);
+    background: -ms-linear-gradient(top, #ffffff 0%,#f6f6f6 47%,#ededed 100%);
+    background: linear-gradient(top, #ffffff 0%,#f6f6f6 47%,#ededed 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ededed',GradientType=0 );
+    box-shadow: 0px 1px 1px rgba(0,0,0,0.3);
+}
+.codrops-demos a.current-demo, .codrops-demos a.current-demo:hover {
+    background: #fff;
+    color: #000;
+    font-weight: bold;
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff',GradientType=0 );
+}

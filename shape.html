@@ -1,0 +1,1304 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="renderer" content="webkit">
+    <link rel="stylesheet" href="common.css">
+    <title>css3 shape</title>
+</head>
+
+<body>
+    <!-- 链接 -->
+    <div class="container">
+        <header>
+            <h1>demo <span>with CSS3 Animations</span></h1>
+            <nav class="codrops-demos">
+                <a class="current-demo" href="word.html">word Demo</a>
+                <a href="photo.html">photo Demo</a>
+                <a href="shape.html">shape Demo</a>
+            </nav>
+        </header>
+    </div>
+    <div class="container">
+        <!-- bubbly 气泡三角形-->
+        <section id="bubbly" class="code-wrap cf">
+            <div class="css-live-wrap">
+                <summary>气泡三角形</summary>
+                <summary>利用 border 的 transparent 特性实现</summary>
+                <div class="bubbly">
+                    <h1>.bubbly</h1>
+                </div>
+            </div>
+            <style class="code" contenteditable=true>
+            .bubbly {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background: #00aabb;
+                border-radius: .4em;
+                width: 260px;
+                padding: 60px 20px;
+                text-align: center;
+                color: white;
+                font-size: 200%;
+            }
+            
+            .bubbly:after {
+                content: '';
+                position: absolute;
+                bottom: 1px;
+                left: 50%;
+                border: 34px solid transparent;
+                border-top-color: #00aabb;
+                border-bottom: 0;
+                border-left: 0;
+                margin: 0 0 -34px -17px;
+            }
+            </style>
+        </section>
+        <!-- trapezoid 伪类加旋转透视实现梯形 -->
+        <section id="trapezoid" class="code-wrap cf">
+            <div class="css-live-wrap">
+                <summary>梯形</summary>
+                <summary>利用伪类加旋转透视实现</summary>
+                <div class="trapezoid">
+                    <h1>.trapezoid</h1>
+                </div>
+            </div>
+            <style class="code" contenteditable=true>
+            .trapezoid {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 160px;
+                padding: 60px;
+                text-align: center;
+                color: white;
+                font-size: 200%;
+            }
+            
+            .trapezoid:before {
+                content: "";
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                transform: perspective(40px) scaleY(1.3) rotateX(5deg);
+                transform-origin: bottom;
+                background: deeppink;
+                z-index: -1;
+            }
+            </style>
+        </section>
+        <!-- pie 利用伪类、线性渐变、旋转实现饼图 -->
+        <section id="pie" class="code-wrap cf">
+            <div class="css-live-wrap">
+                <summary>饼图</summary>
+                <summary>利用伪类、线性渐变、旋转实现</summary>
+                <div class="pie">
+                    <h1>.pie</h1>
+                </div>
+            </div>
+            <style class="code" contenteditable=true>
+            .pie {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 200px;
+                line-height: 200px;
+                border-radius: 50%;
+                text-align: center;
+                color: white;
+                font-size: 200%;
+                background-color: yellowgreen;
+                overflow: hidden;
+                background-image: linear-gradient(to right, transparent 50%, #655 0);
+                cursor: pointer;
+            }
+            
+            .pie:before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 50%;
+                width: 50%;
+                height: 100%;
+                background-color: inherit;
+                transform-origin: left;
+                z-index: -1;
+                transform: rotate(.1turn);
+            }
+            
+            .pie:hover:before {
+                transition: all 1s;
+                transform: rotate(.45turn);
+            }
+            </style>
+        </section>
+        <!-- corner 切角、伪类、渐变、旋转实现折角 -->
+        <section id="corner" class="code-wrap cf">
+            <div class="css-live-wrap">
+                <summary>折角</summary>
+                <summary>利用切角、伪类、渐变、旋转实现</summary>
+                <div class="corner">
+                    <h1>.corner</h1>
+                </div>
+            </div>
+            <style class="code" contenteditable=true>
+            .corner {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 120px;
+                line-height: 120px;
+                padding: 40px;
+                text-align: center;
+                color: white;
+                font-size: 200%;
+                background: linear-gradient(-150deg, transparent 1.5em, yellowgreen 0);
+                border-radius: .5em;
+            }
+            
+            .corner:before {
+                content: '';
+                position: absolute;
+                top: 0;
+                right: 0;
+                background: linear-gradient(to left bottom, transparent 50%, rgba(0, 0, 0, .2) 0, rgba(0, 0, 0, .4)) 100% 0 no-repeat;
+                width: 1.73em;
+                height: 3em;
+                transform: translateY(-1.3em) rotate(-30deg);
+                transform-origin: bottom right;
+                border-bottom-left-radius: inherit;
+                box-shadow: -.2em .2em .3em -.1em rgba(0, 0, 0, .15);
+            }
+            </style>
+        </section>
+        <!-- spectiveBlur 利用阴影实现背景模糊效果 -->
+        <section id="spectiveBlur" class="code-wrap cf" style="z-index: 100">
+            <div class="css-live-wrap">
+                <summary>spectiveBlur</summary>
+                <summary>纯 CSS 方案实现背景变暗效果（hover按钮触发）</summary>
+                <div class="spectiveBlur">
+                    <h1>.spectiveBlur</h1>
+                </div>
+            </div>
+            <style class="code" contenteditable=true>
+            .spectiveBlur {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 220px;
+                line-height: 160px;
+                transform: translate(-50%, -50%);
+                border-radius: 10px;
+                overflow: hidden;
+                background: #E91E63;
+                color: #fff;
+                font-size: 200%;
+                text-align: center;
+                cursor: pointer;
+                transition: transform .2s;
+            }
+            
+            .spectiveBlur:hover {
+                box-shadow: 0 0 0 1920px rgba(0, 0, 0, .7);
+                transform: translate(-50%, -50%) scale(1.2);
+            }
+            </style>
+        </section>
+        <!-- stripe 渐变实现条纹背景图案 -->
+        <section id="stripe" class="code-wrap cf">
+            <div class="css-live-wrap">
+                <summary>条纹背景图</summary>
+                <summary>利用渐变实现</summary>
+                <div class="stripe">
+                    <h1>.stripe</h1>
+                </div>
+            </div>
+            <style class="code" contenteditable=true>
+            .stripe {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 200px;
+                line-height: 200px;
+                text-align: center;
+                color: white;
+                font-size: 200%;
+                background: deeppink;
+                border-radius: .5em;
+                background: repeating-linear-gradient(45deg, #CC9999, #CC9999 15px, #CCCCCC 0, #CCCCCC 30px)
+            }
+            </style>
+        </section>
+        <!-- stripe 渐变实现条纹背景图案 -->
+        <section class="code-wrap cf">
+            <div class="css-live-wrap">
+                <summary>混合模式背景图</summary>
+                <summary>利用渐变实现</summary>
+                <div class="colorful-stripe">
+                    <h1>.colorful-stripe</h1>
+                </div>
+            </div>
+            <style class="code" contenteditable=true>
+            .colorful-stripe {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 300px;
+                line-height: 200px;
+                text-align: center;
+                color: #fff;
+                font-size: 200%;
+                border-radius: .5em;
+                background: linear-gradient(limegreen, transparent), linear-gradient(90deg, skyblue, transparent), linear-gradient(-90deg, coral, transparent);
+                background-blend-mode: screen;
+            }
+            </style>
+        </section>
+        <!-- notching 切角 -->
+        <section id="notching" class="code-wrap cf">
+            <div class="css-live-wrap">
+                <summary>切角</summary>
+                <summary>使用线性渐变实现</summary>
+                <div class="notching">
+                    <h1>.notching</h1>
+                </div>
+            </div>
+            <style class="code" contenteditable=true>
+            .notching {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 160px;
+                padding: 60px 20px;
+                text-align: center;
+                color: white;
+                font-size: 200%;
+            }
+            
+            .notching {
+                background: linear-gradient(135deg, transparent 15px, deeppink 0) top left, linear-gradient(-135deg, transparent 15px, deeppink 0) top right, linear-gradient(-45deg, transparent 15px, deeppink 0) bottom right, linear-gradient(45deg, transparent 15px, deeppink 0) bottom left;
+                background-size: 50% 50%;
+                background-repeat: no-repeat;
+            }
+            </style>
+        </section>
+        <!-- arc 弧形切角 -->
+        <section id="arc" class="code-wrap cf">
+            <div class="css-live-wrap">
+                <summary>弧形切角</summary>
+                <summary>使用径向渐变实现</summary>
+                <div class="arc">
+                    <h1>.arc</h1>
+                </div>
+            </div>
+            <style class="code" contenteditable=true>
+            .arc {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 60px;
+                padding: 60px;
+                text-align: center;
+                color: white;
+                font-size: 200%;
+            }
+            
+            .arc {
+                background: radial-gradient(circle at top left, transparent 15px, yellowgreen 0) top left, radial-gradient(circle at top right, transparent 15px, yellowgreen 0) top right, radial-gradient(circle at bottom right, transparent 15px, yellowgreen 0) bottom right, radial-gradient(circle at bottom left, transparent 15px, yellowgreen 0) bottom left;
+                background-size: 50% 50%;
+                background-repeat: no-repeat;
+            }
+            </style>
+        </section>
+        <!-- pesudo 伪类实现按钮明暗变化 -->
+        <section id="pesudo" class="code-wrap cf">
+            <div class="css-live-wrap">
+                <summary>单个颜色实现 hover 和 active 时的明暗变化效果</summary>
+                <summary>利用伪类及透明度实现</summary>
+                <div class="pesudo">
+                    <h1>.pesudo</h1>
+                </div>
+            </div>
+            <style class="code" contenteditable=true>
+            .pesudo {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 120px;
+                padding: 60px;
+                text-align: center;
+                color: white;
+                font-size: 200%;
+                border-radius: 1em;
+                background: #00aabb;
+                cursor: pointer;
+            }
+            
+            .pesudo:before {
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                z-index: -1;
+                border-radius: 1em;
+                background: rgba(0, 0, 0, .1);
+            }
+            
+            .pesudo:hover:before {
+                content: "";
+            }
+            
+            .pesudo:after {
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                z-index: -1;
+                border-radius: 1em;
+                background: rgba(255, 255, 255, .2);
+            }
+            
+            .pesudo:active:after {
+                content: "";
+            }
+            </style>
+        </section>
+        <!-- sun 线性渐变、阴影、旋转实现晴天天气图案 -->
+        <section id="sun" class="code-wrap cf">
+            <div class="css-live-wrap">
+                <summary>晴天（sun）（单标签实现）</summary>
+                <summary>利用线性渐变、阴影、旋转实现</summary>
+                <div class="sun">
+                    <h1>.sun</h1>
+                </div>
+            </div>
+            <style class="code" contenteditable=true>
+            .sun {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 200px;
+                height: 260px;
+                transform: translate(-50%, -50%);
+                text-align: center;
+                font-size: 200%;
+                color: #fff;
+                background: #0BF;
+                border-radius: 5px;
+            }
+            
+            .sun:before {
+                content: "";
+                position: absolute;
+                width: 80px;
+                height: 80px;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                border-radius: 50%;
+                background: rgba(255, 238, 68, 1);
+                box-shadow: 0 0 0 15px rgba(255, 255, 0, 0.2), 0 0 15px #fff;
+                z-index: -10;
+            }
+            
+            .sun:after {
+                content: "";
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                height: 160px;
+                width: 160px;
+                transform: translate(-50%, -50%) rotate(30deg);
+                z-index: -100;
+                background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 0) 100%), -webkit-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 0) 100%);
+                background-size: 20px 100%, 100% 20px;
+                background-repeat: no-repeat;
+                background-position: center center, center center;
+                animation: sunRotate 10s linear infinite;
+            }
+            
+            @keyframes sunRotate {
+                0% {
+                    transform: translate(-50%, -50%) rotate(30deg);
+                }
+                100% {
+                    transform: translate(-50%, -50%) rotate(390deg);
+                }
+            }
+            </style>
+        </section>
+        <!-- cloudy 阴影实现多云天气图案 -->
+        <section id="cloudy" class="code-wrap cf">
+            <div class="css-live-wrap">
+                <summary>多云（cloudy）（单标签实现）</summary>
+                <summary>利用线性渐变、阴影、缩放实现</summary>
+                <div class="cloudy">
+                    <h1>.cloudy</h1>
+                </div>
+            </div>
+            <style class="code" contenteditable=true>
+            .cloudy {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 200px;
+                height: 260px;
+                transform: translate(-50%, -50%);
+                text-align: center;
+                font-size: 200%;
+                color: #fff;
+                background: #2EB5E5;
+                border-radius: 5px;
+            }
+            
+            .cloudy:before {
+                content: "";
+                text-indent: 23px;
+                font-size: 22px;
+                line-height: 40px;
+                color: #333;
+                position: absolute;
+                height: 50px;
+                width: 50px;
+                background: #FFFFFF;
+                left: 30%;
+                top: 45%;
+                transform: translate(-50%, -50%);
+                border-radius: 50%;
+                box-shadow: #FFFFFF 65px -15px 0 -5px, #FFFFFF 25px -25px, #FFFFFF 30px 10px, #FFFFFF 60px 15px 0 -10px, #FFFFFF 85px 5px 0 -5px, #C8C8C8 35px -35px, #C8C8C8 66px -27px 0 -5px, #C8C8C8 91px -10px 0 -8px;
+                animation: cloudy 5s ease-in-out infinite;
+            }
+            
+            .cloudy:after {
+                content: "";
+                position: absolute;
+                top: 80%;
+                left: 50%;
+                height: 15px;
+                width: 120px;
+                background: rgba(0, 0, 0, .5);
+                border-radius: 50%;
+                transform: translate(-50%, -50%);
+                animation: cloudy_shadow 5s ease-in-out infinite;
+            }
+            
+            @keyframes cloudy {
+                50% {
+                    transform: translate(-50%, -70%);
+                }
+                100% {
+                    transform: translate(-50%, -50%);
+                }
+            }
+            
+            @keyframes cloudy_shadow {
+                50% {
+                    transform: translate(-50%, -50%) scale(0.8);
+                    background: rgba(0, 0, 0, .2);
+                }
+                100% {
+                    transform: translate(-50%, -50%) scale(1);
+                    background: rgba(0, 0, 0, .5);
+                }
+            }
+            </style>
+        </section>
+        <!-- cloudy 阴影实现多云天气图案 -->
+        <section id="cloudy2" class="code-wrap cf">
+            <div class="css-live-wrap">
+                <summary>多云（cloudy2）（单标签实现）</summary>
+                <summary>利用线性渐变、阴影、缩放实现</summary>
+                <div class="cloudy2">
+                    <h1>.cloudy2</h1>
+                </div>
+            </div>
+            <style class="code" contenteditable=true>
+            .cloudy2 {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 200px;
+                height: 260px;
+                transform: translate(-50%, -50%);
+                text-align: center;
+                font-size: 200%;
+                color: #fff;
+                background: #2EB5E5;
+                border-radius: 5px;
+            }
+            
+            .cloudy2:before {
+                content: "";
+                text-indent: 23px;
+                font-size: 22px;
+                line-height: 40px;
+                color: #333;
+                position: absolute;
+                height: 50px;
+                width: 50px;
+                background: #FFFFFF;
+                left: 30%;
+                top: 55%;
+                transform: translate(-50%, -50%);
+                border-radius: 50%;
+                z-index: 100;
+                box-shadow: #FFFFFF 65px -15px 0 -5px, #FFFFFF 25px -25px, #FFFFFF 30px 10px, #FFFFFF 60px 15px 0 -10px, #FFFFFF 85px 5px 0 -5px;
+                animation: cloudy2 5s ease-in-out infinite;
+            }
+            
+            .cloudy2:after {
+                content: "";
+                position: absolute;
+                top: 45%;
+                left: 63%;
+                height: 60px;
+                width: 60px;
+                z-index: 10;
+                background: linear-gradient(180deg, #FE9F38 0%, #F46635 100%);
+                border-radius: 50%;
+                transform: translate(-50%, -50%);
+                box-shadow: 0 0 10px 4px #FFA563;
+                animation: cloudy2 10s ease-in-out infinite;
+            }
+            
+            @keyframes cloudy2 {
+                50% {
+                    transform: translate(-50%, -70%);
+                }
+                100% {
+                    transform: translate(-50%, -50%);
+                }
+            }
+            </style>
+        </section>
+        <!-- rainy 阴影实现雨天天气图案 -->
+        <section id="rainy" class="code-wrap cf">
+            <div class="css-live-wrap">
+                <summary>雨（rainy）</summary>
+                <summary>利用线性渐变、阴影、缩放实现</summary>
+                <div class="rainy-container">
+                    <h1>.rainy</h1>
+                    <div class="rainy"></div>
+                </div>
+            </div>
+            <style class="code" contenteditable=true>
+            .rainy-container {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 200px;
+                height: 260px;
+                transform: translate(-50%, -50%);
+                text-align: center;
+                font-size: 200%;
+                color: #fff;
+                background: #E6E6E6;
+                border-radius: 5px;
+            }
+            
+            .rainy {
+                position: absolute;
+                width: 3px;
+                height: 6px;
+                top: 30%;
+                left: 50%;
+                background: #CCCCCC;
+                border-radius: 50%;
+                animation: rainy_rain .7s infinite linear;
+            }
+            
+            .rainy:before {
+                content: "";
+                color: #333;
+                position: absolute;
+                height: 50px;
+                width: 50px;
+                top: 30px;
+                left: -40px;
+                background: #CCC;
+                transform: translate(-50%, -50%);
+                border-radius: 50%;
+                box-shadow: #CCC 65px -15px 0 -5px, #CCC 25px -25px, #CCC 30px 10px, #CCC 60px 15px 0 -10px, #CCC 85px 5px 0 -5px;
+                animation: cloudy 5s ease-in-out infinite;
+            }
+            
+            .rainy:after {
+                content: "";
+                position: absolute;
+                top: 120px;
+                left: 50%;
+                height: 15px;
+                width: 120px;
+                background: rgba(0, 0, 0, .5);
+                border-radius: 50%;
+                transform: translate(-50%, -50%);
+                animation: cloudy_shadow 5s ease-in-out infinite;
+            }
+            
+            @keyframes cloudy {
+                50% {
+                    transform: translate(-50%, -70%);
+                }
+                100% {
+                    transform: translate(-50%, -50%);
+                }
+            }
+            
+            @keyframes cloudy_shadow {
+                50% {
+                    transform: translate(-50%, -50%) scale(0.8);
+                    background: rgba(0, 0, 0, .2);
+                }
+                100% {
+                    transform: translate(-50%, -50%) scale(1);
+                    background: rgba(0, 0, 0, .5);
+                }
+            }
+            
+            @keyframes rainy_rain {
+                0% {
+                    box-shadow: rgba(0, 0, 0, 0) -10px 30px, rgba(0, 0, 0, 0) 40px 40px, rgba(0, 0, 0, .3) -50px 75px, rgba(0, 0, 0, .3) 55px 50px, rgba(0, 0, 0, .3) -18px 100px, rgba(0, 0, 0, .3) 12px 95px, rgba(0, 0, 0, .3) -31px 45px, rgba(0, 0, 0, .3) 30px 35px;
+                }
+                25% {
+                    box-shadow: rgba(0, 0, 0, .3) -10px 45px, rgba(0, 0, 0, .3) 40px 60px, rgba(0, 0, 0, .3) -50px 90px, rgba(0, 0, 0, .3) 55px 65px, rgba(0, 0, 0, 0) -18px 120px, rgba(0, 0, 0, 0) 12px 120px, rgba(0, 0, 0, .3) -31px 70px, rgba(0, 0, 0, .3) 30px 60px;
+                }
+                26% {
+                    box-shadow: rgba(0, 0, 0, .3) -10px 45px, rgba(0, 0, 0, .3) 40px 60px, rgba(0, 0, 0, .3) -50px 90px, rgba(0, 0, 0, .3) 55px 65px, rgba(0, 0, 0, 0) -18px 40px, rgba(0, 0, 0, 0) 12px 20px, rgba(0, 0, 0, .3) -31px 70px, rgba(0, 0, 0, .3) 30px 60px;
+                }
+                50% {
+                    box-shadow: rgba(0, 0, 0, .3) -10px 70px, rgba(0, 0, 0, .3) 40px 80px, rgba(0, 0, 0, 0) -50px 100px, rgba(0, 0, 0, .3) 55px 80px, rgba(0, 0, 0, .3) -18px 60px, rgba(0, 0, 0, .3) 12px 45px, rgba(0, 0, 0, .3) -31px 95px, rgba(0, 0, 0, .3) 30px 85px;
+                }
+                51% {
+                    box-shadow: rgba(0, 0, 0, .3) -10px 70px, rgba(0, 0, 0, .3) 40px 80px, rgba(0, 0, 0, 0) -50px 45px, rgba(0, 0, 0, .3) 55px 80px, rgba(0, 0, 0, .3) -18px 60px, rgba(0, 0, 0, .3) 12px 45px, rgba(0, 0, 0, .3) -31px 95px, rgba(0, 0, 0, .3) 30px 85px;
+                }
+                75% {
+                    box-shadow: rgba(0, 0, 0, .3) -10px 95px, rgba(0, 0, 0, .3) 40px 100px, rgba(0, 0, 0, .3) -50px 60px, rgba(0, 0, 0, 0) 55px 95px, rgba(0, 0, 0, .3) -18px 80px, rgba(0, 0, 0, .3) 12px 70px, rgba(0, 0, 0, 0) -31px 120px, rgba(0, 0, 0, 0) 30px 110px;
+                }
+                76% {
+                    box-shadow: rgba(0, 0, 0, .3) -10px 95px, rgba(0, 0, 0, .3) 40px 100px, rgba(0, 0, 0, .3) -50px 60px, rgba(0, 0, 0, 0) 55px 35px, rgba(0, 0, 0, .3) -18px 80px, rgba(0, 0, 0, .3) 12px 70px, rgba(0, 0, 0, 0) -31px 25px, rgba(0, 0, 0, 0) 30px 15px;
+                }
+                100% {
+                    box-shadow: rgba(0, 0, 0, 0) -10px 120px, rgba(0, 0, 0, 0) 40px 120px, rgba(0, 0, 0, .3) -50px 75px, rgba(0, 0, 0, .3) 55px 50px, rgba(0, 0, 0, .3) -18px 100px, rgba(0, 0, 0, .3) 12px 95px, rgba(0, 0, 0, .3) -31px 45px, rgba(0, 0, 0, .3) 30px 35px;
+                }
+            }
+            </style>
+        </section>
+        <!-- breeze 利用border、transparent、实现微风天气图案 -->
+        <section id="breeze" class="code-wrap cf">
+            <div class="css-live-wrap">
+                <summary>微风（breeze）</summary>
+                <summary>利用border、transparent、实现</summary>
+                <div class="breeze-container">
+                    <h1>.breeze</h1>
+                    <div class="breeze"></div>
+                </div>
+            </div>
+            <style class="code" contenteditable=true>
+            .breeze-container {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 200px;
+                height: 260px;
+                transform: translate(-50%, -50%);
+                text-align: center;
+                font-size: 200%;
+                color: #fff;
+                background: #00BBFF;
+                border-radius: 5px;
+            }
+            
+            .breeze-container:after {
+                content: "";
+                position: absolute;
+                top: 58%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 6px;
+                height: 70px;
+                background: #fff;
+            }
+            
+            .breeze {
+                position: absolute;
+                top: 30%;
+                left: 50%;
+                transform: translate(-50%, -50%) rotate(1deg);
+                border-bottom: 60px solid #fff;
+                border-left: 5px solid transparent;
+                border-right: 5px solid transparent;
+                animation: windmill 12s infinite linear;
+                transform-origin: 50.5% 62px;
+            }
+            
+            .breeze:before {
+                position: absolute;
+                top: 75px;
+                left: -59px;
+                content: "";
+                border-right: 60px solid #fff;
+                border-top: 5px solid transparent;
+                border-bottom: 5px solid transparent;
+                transform: rotate(-30deg);
+            }
+            
+            .breeze:after {
+                position: absolute;
+                top: 75px;
+                left: -1px;
+                content: "";
+                border-left: 60px solid #fff;
+                border-top: 5px solid transparent;
+                border-bottom: 5px solid transparent;
+                transform: rotate(30deg);
+            }
+            
+            @keyframes windmill {
+                0% {
+                    transform: translate(-50%, -50%) rotate(0deg);
+                }
+                100% {
+                    transform: translate(-50%, -50%) rotate(360deg);
+                }
+            }
+            </style>
+        </section>
+        <!-- rainbow 利用border、box-shadow 实现彩虹天气图案 -->
+        <section id="rainbow" class="code-wrap cf">
+            <div class="css-live-wrap">
+                <summary>彩虹（rainbow）</summary>
+                <summary>利用border、box-shadow 实现</summary>
+                <div class="rainbow-container">
+                    <h1>.rainbow</h1>
+                    <div class="rainbow"></div>
+                </div>
+            </div>
+            <style class="code" contenteditable=true>
+            .rainbow-container {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 200px;
+                height: 260px;
+                transform: translate(-50%, -50%);
+                text-align: center;
+                font-size: 200%;
+                color: #fff;
+                background: #F3D166;
+                border-radius: 5px;
+            }
+            
+            .rainbow {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                height: 1px;
+                width: 1px;
+            }
+            
+            .rainbow:before {
+                content: "";
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%) rotate(45deg);
+                height: 70px;
+                width: 70px;
+                border-radius: 100px 0 0 0;
+                box-shadow: #F44336 -2px -2px 0 1px, #FF9800 -4px -4px 0 3px, #FFEB3B -6px -6px 0 5px, #8BC34A -8px -8px 0 7px, #00BCD4 -10px -10px 0 9px, #2196F3 -12px -12px 0 11px, #9C27B0 -14px -14px 0 13px;
+                animation: rainbow 5s ease-in-out infinite;
+            }
+            
+            .rainbow:after {
+                content: "";
+                position: absolute;
+                top: 70px;
+                left: 50%;
+                height: 15px;
+                width: 120px;
+                background: rgba(0, 0, 0, .5);
+                border-radius: 50%;
+                transform: translate(-50%, -50%);
+                animation: cloudy_shadow 5s ease-in-out infinite;
+            }
+            
+            @keyframes rainbow {
+                50% {
+                    transform: translate(-50%, -55%) rotate(30deg);
+                }
+                100% {
+                    transform: translate(-50%, -50%) rotate(45deg);
+                }
+            }
+            
+            @keyframes cloudy_shadow {
+                50% {
+                    transform: translate(-50%, -50%) scale(0.8);
+                    background: rgba(0, 0, 0, .2);
+                }
+                100% {
+                    transform: translate(-50%, -50%) scale(1);
+                    background: rgba(0, 0, 0, .5);
+                }
+            }
+            </style>
+        </section>
+        <!-- starry 利用 box-shadow 实现彩虹天气图案 -->
+        <section id="starry" class="code-wrap cf">
+            <div class="css-live-wrap">
+                <summary>夜空璀璨（starry）</summary>
+                <summary>利用 box-shadow 实现</summary>
+                <div class="starry-container">
+                    <h1>.starry</h1>
+                    <div class="starry"></div>
+                </div>
+            </div>
+            <style class="code" contenteditable=true>
+            .starry-container {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 200px;
+                height: 260px;
+                transform: translate(-50%, -50%);
+                text-align: center;
+                font-size: 200%;
+                color: #fff;
+                background: #222233;
+                border-radius: 5px;
+            }
+            
+            .starry {
+                position: absolute;
+                top: 30%;
+                left: 40%;
+                transform: translate(-50%, -50%);
+                height: 4px;
+                width: 4px;
+                border-radius: 50%;
+                box-shadow: #FFFFFF -26px 77px 0 -1px, rgba(255, 255, 255, 0.1) -36px 59px 0 -1px, rgba(255, 255, 255, 0.1) -28px 89px 0 -1px, #FFFFFF -35px 20px 0 -1px, #FFFFFF 14px 100px, rgba(255, 255, 255, 0.1) 41px 60px, #FFFFFF 34px 39px, rgba(255, 255, 255, 0.1) 14px 45px 0 -1px, #FFFFFF 64px 12px 0 -1px, rgba(255, 255, 255, 0.1) 32px 96px 0 -1px, #FFFFFF 64px 71px, rgba(255, 255, 255, 0.1) 60px 18px 0 -1px, #FFFFFF 34px 9px, rgba(255, 255, 255, 0.1) -26px 55px 0 -1px;
+                animation: starry_star 5s ease-in-out infinite;
+            }
+            
+            .starry:before {
+                content: "";
+                position: absolute;
+                top: 20%;
+                left: 50%;
+                width: 100px;
+                height: 100px;
+                box-shadow: #FFFFFF -25px 0;
+                transform: rotate(-5deg);
+                border-radius: 50%;
+                animation: starry 5s ease-in-out infinite;
+            }
+            
+            @keyframes starry {
+                50% {
+                    transform: rotate(10deg);
+                }
+            }
+            
+            @keyframes starry_star {
+                50% {
+                    box-shadow: rgba(255, 255, 255, 0.1) -26px 77px 0 -1px, #FFF -36px 59px 0 -1px, #FFF -28px 89px 0 -1px, rgba(255, 255, 255, 0.1) -35px 20px 0 -1px, rgba(255, 255, 255, 0.1) 14px 100px, #FFF 41px 60px, rgba(255, 255, 255, 0.1) 34px 39px, #FFF 14px 45px 0 -1px, rgba(255, 255, 255, 0.1) 64px 12px 0 -1px, #FFF 32px 96px 0 -1px, rgba(255, 255, 255, 0.1) 64px 71px, #FFF 60px 18px 0 -1px, rgba(255, 255, 255, 0.1) 34px 9px, #FFF -26px 55px 0 -1px;
+                }
+            }
+            </style>
+        </section>
+        <!-- thunder 阴影、border实现雷电天气图案 -->
+        <section id="thunder" class="code-wrap cf">
+            <div class="css-live-wrap">
+                <summary>雷电（thunder）</summary>
+                <summary>利用阴影、border实现</summary>
+                <div class="thunder-container">
+                    <h1>.thunder</h1>
+                    <div class="thunder"></div>
+                </div>
+            </div>
+            <style class="code" contenteditable=true>
+            .thunder-container {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 200px;
+                height: 260px;
+                transform: translate(-50%, -50%);
+                text-align: center;
+                font-size: 200%;
+                color: #fff;
+                background: #444;
+                border-radius: 5px;
+            }
+            
+            .thunder {
+                color: #333;
+                position: absolute;
+                height: 50px;
+                width: 50px;
+                top: 40%;
+                left: 30%;
+                background: #222;
+                transform: translate(-50%, -50%);
+                border-radius: 50%;
+                box-shadow: #222 65px -15px 0 -5px, #222 25px -25px, #222 30px 10px, #222 60px 15px 0 -10px, #222 85px 5px 0 -5px;
+                animation: cloudy 5s ease-in-out infinite;
+            }
+            
+            .thunder:before {
+                content: "";
+                position: absolute;
+                top: 60px;
+                left: 60px;
+                border-left: 0px solid transparent;
+                border-right: 8px solid transparent;
+                border-top: 38px solid yellow;
+                box-shadow: yellow -7px -32px;
+                transform: rotate(30deg);
+                transform-origin: center -50px;
+                animation: stormy_thunder 2s steps(1, end) infinite;
+                ;
+            }
+            
+            .thunder:after {
+                content: "";
+                position: absolute;
+                top: 120px;
+                left: 64px;
+                height: 15px;
+                width: 120px;
+                background: rgba(0, 0, 0, .5);
+                border-radius: 50%;
+                z-index: -1;
+                transform: translate(-50%, -50%);
+                animation: cloudy_shadow 5s ease-in-out infinite;
+            }
+            
+            @keyframes cloudy {
+                50% {
+                    transform: translate(-50%, -30px);
+                }
+            }
+            
+            @keyframes cloudy_shadow {
+                50% {
+                    transform: translate(-50%, 0) scale(0.8);
+                    background: rgba(0, 0, 0, .2);
+                }
+            }
+            
+            @keyframes stormy_thunder {
+                0% {
+                    transform: rotate(30deg);
+                    opacity: 1;
+                }
+                5% {
+                    transform: rotate(-34deg);
+                    opacity: 1;
+                }
+                10% {
+                    transform: rotate(0deg);
+                    opacity: 1;
+                }
+                15% {
+                    transform: rotate(-34deg);
+                    opacity: 0;
+                }
+            }
+            </style>
+        </section>
+        <!-- snowy 阴影实现雪天天气图案 -->
+        <section id="snowy" class="code-wrap cf">
+            <div class="css-live-wrap">
+                <summary>雪（snowy）</summary>
+                <summary>利用阴影实现</summary>
+                <div class="snowy-container">
+                    <h1>.snowy</h1>
+                    <div class="snowy"></div>
+                </div>
+            </div>
+            <style class="code" contenteditable=true>
+            .snowy-container {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 200px;
+                height: 260px;
+                transform: translate(-50%, -50%);
+                text-align: center;
+                font-size: 200%;
+                color: #fff;
+                background: #607D8B;
+                border-radius: 5px;
+            }
+            
+            .snowy {
+                position: absolute;
+                width: 4px;
+                height: 4px;
+                border-radius: 50%;
+                top: 30%;
+                left: 50%;
+                background: #fff;
+                border-radius: 50%;
+                animation: snowy_rain 2s infinite linear;
+            }
+            
+            .snowy:before {
+                content: "";
+                color: #333;
+                position: absolute;
+                height: 50px;
+                width: 50px;
+                top: 30px;
+                left: -40px;
+                background: #eee;
+                transform: translate(-50%, -50%);
+                border-radius: 50%;
+                box-shadow: #eee 65px -15px 0 -5px, #eee 25px -25px, #eee 30px 10px, #eee 60px 15px 0 -10px, #eee 85px 5px 0 -5px;
+                animation: cloudy 5s ease-in-out infinite;
+            }
+            
+            .snowy:after {
+                content: "";
+                position: absolute;
+                top: 120px;
+                left: 50%;
+                height: 15px;
+                width: 120px;
+                background: rgba(0, 0, 0, .5);
+                border-radius: 50%;
+                transform: translate(-50%, -50%);
+                animation: cloudy_shadow 5s ease-in-out infinite;
+            }
+            
+            @keyframes cloudy {
+                50% {
+                    transform: translate(-50%, -70%);
+                }
+                100% {
+                    transform: translate(-50%, -50%);
+                }
+            }
+            
+            @keyframes cloudy_shadow {
+                50% {
+                    transform: translate(-50%, -50%) scale(0.8);
+                    background: rgba(0, 0, 0, .2);
+                }
+                100% {
+                    transform: translate(-50%, -50%) scale(1);
+                    background: rgba(0, 0, 0, .5);
+                }
+            }
+            
+            @keyframes snowy_rain {
+                0% {
+                    box-shadow: rgba(255, 255, 255, 0) -10px 30px, rgba(255, 255, 255, 0) 40px 40px, rgba(255, 255, 255, .6) -50px 75px, rgba(255, 255, 255, .6) 55px 50px, rgba(255, 255, 255, .6) -18px 100px, rgba(255, 255, 255, .6) 12px 95px, rgba(255, 255, 255, .6) -31px 45px, rgba(255, 255, 255, .6) 30px 35px;
+                }
+                25% {
+                    box-shadow: rgba(255, 255, 255, .6) -10px 45px, rgba(255, 255, 255, .6) 40px 60px, rgba(255, 255, 255, .6) -50px 90px, rgba(255, 255, 255, .6) 55px 65px, rgba(255, 255, 255, 0) -18px 120px, rgba(255, 255, 255, 0) 12px 120px, rgba(255, 255, 255, .6) -31px 70px, rgba(255, 255, 255, .6) 30px 60px;
+                }
+                26% {
+                    box-shadow: rgba(255, 255, 255, .6) -10px 45px, rgba(255, 255, 255, .6) 40px 60px, rgba(255, 255, 255, .6) -50px 90px, rgba(255, 255, 255, .6) 55px 65px, rgba(255, 255, 255, 0) -18px 40px, rgba(255, 255, 255, 0) 12px 20px, rgba(255, 255, 255, .6) -31px 70px, rgba(255, 255, 255, .6) 30px 60px;
+                }
+                50% {
+                    box-shadow: rgba(255, 255, 255, .6) -10px 70px, rgba(255, 255, 255, .6) 40px 80px, rgba(255, 255, 255, 0) -50px 100px, rgba(255, 255, 255, .6) 55px 80px, rgba(255, 255, 255, .6) -18px 60px, rgba(255, 255, 255, .6) 12px 45px, rgba(255, 255, 255, .6) -31px 95px, rgba(255, 255, 255, .6) 30px 85px;
+                }
+                51% {
+                    box-shadow: rgba(255, 255, 255, .6) -10px 70px, rgba(255, 255, 255, .6) 40px 80px, rgba(255, 255, 255, 0) -50px 45px, rgba(255, 255, 255, .6) 55px 80px, rgba(255, 255, 255, .6) -18px 60px, rgba(255, 255, 255, .6) 12px 45px, rgba(255, 255, 255, .6) -31px 95px, rgba(255, 255, 255, .6) 30px 85px;
+                }
+                75% {
+                    box-shadow: rgba(255, 255, 255, .6) -10px 95px, rgba(255, 255, 255, .6) 40px 100px, rgba(255, 255, 255, .6) -50px 60px, rgba(255, 255, 255, 0) 55px 95px, rgba(255, 255, 255, .6) -18px 80px, rgba(255, 255, 255, .6) 12px 70px, rgba(255, 255, 255, 0) -31px 120px, rgba(255, 255, 255, 0) 30px 110px;
+                }
+                76% {
+                    box-shadow: rgba(255, 255, 255, .6) -10px 95px, rgba(255, 255, 255, .6) 40px 100px, rgba(255, 255, 255, .6) -50px 60px, rgba(255, 255, 255, 0) 55px 35px, rgba(255, 255, 255, .6) -18px 80px, rgba(255, 255, 255, .6) 12px 70px, rgba(255, 255, 255, 0) -31px 25px, rgba(255, 255, 255, 0) 30px 15px;
+                }
+                100% {
+                    box-shadow: rgba(255, 255, 255, 0) -10px 120px, rgba(255, 255, 255, 0) 40px 120px, rgba(255, 255, 255, .6) -50px 75px, rgba(255, 255, 255, .6) 55px 50px, rgba(255, 255, 255, .6) -18px 100px, rgba(255, 255, 255, .6) 12px 95px, rgba(255, 255, 255, .6) -31px 45px, rgba(255, 255, 255, .6) 30px 35px;
+                }
+            }
+            </style>
+        </section>
+        <!-- hover-title 无 JS 代码，纯 CSS 实现 title 属性 hover 效果 -->
+        <section id="hover-title" class="code-wrap cf">
+            <div class="css-live-wrap">
+                <summary>纯CSS实现title属性hover效果（单标签实现）</summary>
+                <summary>利用伪元素 content 的可读取 attr 特性</summary>
+                <summary>鼠标hover文字可看到效果，使用审查元素查看HTML结构</summary>
+                <div class="hover-title" data-msg="类title框展示">
+                    Hover ME
+                </div>
+            </div>
+            <style class="code" contenteditable=true>
+            .hover-title {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 120px;
+                line-height: 38px;
+                color: #333;
+                text-align: center;
+                font-size: 24px;
+                cursor: pointer;
+            }
+            
+            .hover-title:hover:before {
+                content: attr(data-msg);
+                position: absolute;
+                top: -50px;
+                left: 10px;
+                padding: 2px 6px;
+                display: inline-block;
+                color: #333;
+                border: 1px solid #333;
+                border-radius: 5px;
+                font-size: 14px;
+            }
+            
+            .hover-title:hover:after {
+                content: "";
+                border-top: 5px solid #333;
+                border-left: 5px solid transparent;
+                border-right: 5px solid transparent;
+                position: absolute;
+                top: -6px;
+                left: 55px;
+            }
+            </style>
+        </section>
+        <!-- 文字故障效果 -->
+        <section id="text-magic" class="code-wrap cf">
+            <div class="css-live-wrap">
+                <summary>文字故障效果</summary>
+                <summary>一种CSS效果，仿电脑屏幕出故障了的样子</summary>
+                <div class="text-magic" data-word="CSSTextMagic">
+                    CSSTextMagic
+                    <div class='white'></div>
+                </div>
+            </div>
+            <style class="code" contenteditable=true>
+            .text-magic {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 300px;
+                font-size: 36px;
+                font-family: Raleway, Verdana, Arial;
+            }
+            
+            .white {
+                position: absolute;
+                left: 0;
+                top: 15px;
+                width: 100%;
+                height: 3px;
+                background: #fff;
+                z-index: 4;
+                animation: whiteMove 3s ease-out infinite;
+            }
+            
+            .text-magic:before {
+                content: attr(data-word);
+                position: absolute;
+                top: 0;
+                left: 0.5px;
+                height: 0px;
+                color: rgba(0, 0, 0, .9);
+                overflow: hidden;
+                z-index: 2;
+                animation: redShadow 1s ease-in infinite;
+                -webkit-filter: contrast(200%);
+                text-shadow: 0.1px 0 0 red;
+            }
+            
+            .text-magic:after {
+                content: attr(data-word);
+                position: absolute;
+                top: 0;
+                left: -3px;
+                height: 36px;
+                color: rgba(0, 0, 0, .8);
+                overflow: hidden;
+                z-index: 3;
+                background: rgba(255, 255, 255, .9);
+                animation: redHeight 1.5s ease-out infinite;
+                -webkit-filter: contrast(200%);
+            }
+            
+            @keyframes redShadow {
+                20% {
+                    height: 32px;
+                }
+                60% {
+                    height: 6px;
+                }
+                100% {
+                    height: 42px;
+                }
+            }
+            
+            @keyframes redHeight {
+                20% {
+                    height: 42px;
+                }
+                35% {
+                    height: 12px;
+                }
+                50% {
+                    height: 40px;
+                }
+                60% {
+                    height: 20px;
+                }
+                70% {
+                    height: 34px;
+                }
+                80% {
+                    height: 22px;
+                }
+                100% {
+                    height: 0px;
+                }
+            }
+            
+            @keyframes whiteMove {
+                8% {
+                    top: 38px;
+                }
+                10% {
+                    top: 8px;
+                }
+                12% {
+                    top: 42px;
+                }
+                99% {
+                    top: 36px;
+                }
+            }
+            </style>
+        </section>
+    </div>
+</body>
+
+</html>

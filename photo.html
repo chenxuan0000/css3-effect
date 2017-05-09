@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="renderer" content="webkit">
+    <link rel="stylesheet" href="common.css">
+    <title>css3 图片展开特效</title>
+    <style type="text/css">
+    /*共用样式*/
+    
+    .tab-photo {
+        margin-left: 200px;
+        margin-top: 120px;
+        height: 195px;
+        width: 300px;
+    }
+    
+    .tab-photo>img {
+        position: absolute;
+        width: 290px;
+        padding: 5px;
+        background-color: #fff;
+        transition: all 0.5s;
+        /*设置旋转中心 默认 50% 50%*/
+        /*  transform-origin:0% 0%; 
+    transform-origin:100% 100%; */
+    }
+    
+    .tab-text {
+        color: rgba(53, 117, 159, 1);
+        margin-top: 15px;
+        font-size: 18px;
+        text-align: center;
+    }
+    </style>
+</head>
+
+<body>
+    <!-- 链接 -->
+    <div class="container">
+        <header>
+            <h1>demo <span>with CSS Animations</span></h1>
+            <nav class="codrops-demos">
+                <a class="current-demo" href="word.html">word Demo</a>
+                <a href="photo.html">photo Demo</a>
+                <a href="shape.html">shape Demo</a>
+            </nav>
+        </header>
+    </div>
+    <!-- 图片展开特效1 -->
+    <section class="code-wrap">
+        <div class="css-live-wrap">
+            <summary>图片展开特效1</summary>
+            <summary>rotate</summary>
+            <div class="tab-photo style1">
+                <img src="img/img1.jpg">
+                <img src="img/img2.jpg">
+                <img src="img/img3.jpg">
+                <img src="img/img4.jpg">
+                <img src="img/img5.jpg">
+                <img src="img/img6.jpg">
+                <img src="img/img7.jpg">
+            </div>
+        </div>
+        <style class="code" contenteditable="false">
+        /*style1 rotate */
+        
+        .style1:hover img:nth-child(1) {
+            transform: rotate(10deg);
+            /*-ms-兼容老版本ie*/
+            -ms-transform: rotate(10deg);
+        }
+        
+        .style1:hover img:nth-child(2) {
+            transform: rotate(-10deg);
+            -ms-transform: rotate(-10deg);
+        }
+        
+        .style1:hover img:nth-child(3) {
+            transform: rotate(20deg);
+            -ms-transform: rotate(20deg);
+        }
+        
+        .style1:hover img:nth-child(4) {
+            transform: rotate(-20deg);
+            -ms-transform: rotate(-20deg);
+        }
+        
+        .style1:hover img:nth-child(5) {
+            transform: rotate(30deg);
+            -ms-transform: rotate(30deg);
+        }
+        
+        .style1:hover img:nth-child(6) {
+            transform: rotate(-30deg);
+            -ms-transform: rotate(-30deg);
+        }
+        
+        .style1:hover img:nth-child(7) {
+            transform: scale(0.8, 0.8);
+            -ms-transform: scale(0.8, 0.8);
+        }
+        </style>
+    </section>
+    <!-- 图片展开特效2 -->
+    <section class="code-wrap">
+        <div class="css-live-wrap">
+            <summary>图片展开特效2</summary>
+            <summary>rotate&translate</summary>
+            <div class="tab-photo style2">
+                <img src="img/img1.jpg">
+                <img src="img/img2.jpg">
+                <img src="img/img3.jpg">
+                <img src="img/img4.jpg">
+                <img src="img/img5.jpg">
+                <img src="img/img6.jpg">
+                <img src="img/img7.jpg">
+                <img src="img/img1.jpg">
+                <img src="img/img2.jpg">
+            </div>
+        </div>
+        <style class="code" contenteditable="false">
+        /*style2*/
+        
+        .style2:hover img:nth-child(1) {
+            -ms-transform: translate(40%, 80%) rotate(-40deg);
+            transform: translate(40%, 80%) rotate(-40deg);
+        }
+        
+        .style2:hover img:nth-child(2) {
+            -ms-transform: translate(30%, 60%) rotate(-30deg);
+            transform: translate(30%, 60%) rotate(-30deg);
+        }
+        
+        .style2:hover img:nth-child(3) {
+            -ms-transform: translate(20%, 40%) rotate(-20deg);
+            transform: translate(20%, 40%) rotate(-20deg);
+        }
+        
+        .style2:hover img:nth-child(4) {
+            -ms-transform: translate(10%, 20%) rotate(-10deg);
+            transform: translate(10%, 20%) rotate(-10deg);
+        }
+        
+        .style2:hover img:nth-child(5) {
+            -ms-transform: translate(40%, -80%) rotate(40deg);
+            transform: translate(40%, -80%) rotate(40deg);
+        }
+        
+        .style2:hover img:nth-child(6) {
+            -ms-transform: translate(30%, -60%) rotate(30deg);
+            transform: translate(30%, -60%) rotate(30deg);
+        }
+        
+        .style2:hover img:nth-child(7) {
+            -ms-transform: translate(20%, -40%) rotate(20deg);
+            transform: translate(20%, -40%) rotate(20deg);
+        }
+        
+        .style2:hover img:nth-child(8) {
+            -ms-transform: translate(10%, -20%) rotate(10deg);
+            transform: translate(10%, -20%) rotate(10deg);
+        }
+        
+        .style2:hover img:nth-child(9) {
+            -ms-transform: scale(1.1, 1.1);
+            transform: scale(1.1, 1.1);
+        }
+        </style>
+    </section>
+    <!-- 图片展开特效3 -->
+    <section class="code-wrap">
+        <div class="css-live-wrap">
+            <summary>图片展开特效3</summary>
+            <summary>rotate&translate&scale</summary>
+            <div class="tab-photo style3">
+                <img src="img/img1.jpg">
+                <img src="img/img2.jpg">
+                <img src="img/img3.jpg">
+                <img src="img/img4.jpg">
+                <img src="img/img5.jpg">
+                <img src="img/img6.jpg">
+                <img src="img/img7.jpg">
+                <img src="img/img1.jpg">
+                <img src="img/img2.jpg">
+            </div>
+        </div>
+        <style class="code" contenteditable="false">
+        /*style3*/
+        
+        .style3:hover img:nth-child(1) {
+            -ms-transform: translate(-80%, -160%) rotate(-80deg) scale(0.3, 0.3);
+            transform: translate(-80%, -160%) rotate(-80deg) scale(0.3, 0.3);
+        }
+        
+        .style3:hover img:nth-child(2) {
+            -ms-transform: translate(-70%, -140%) rotate(-70deg) scale(0.4, 0.4);
+            transform: translate(-70%, -140%) rotate(-70deg) scale(0.4, 0.4);
+        }
+        
+        .style3:hover img:nth-child(3) {
+            -ms-transform: translate(-60%, -120%) rotate(-60deg) scale(0.5, 0.5);
+            transform: translate(-60%, -120%) rotate(-60deg) scale(0.5, 0.5);
+        }
+        
+        .style3:hover img:nth-child(4) {
+            -ms-transform: translate(-50%, -100%) rotate(-50deg) scale(0.6, 0.6);
+            transform: translate(-50%, -100%) rotate(-50deg) scale(0.6, 0.6);
+        }
+        
+        .style3:hover img:nth-child(5) {
+            -ms-transform: translate(-40%, -80%) rotate(-40deg) scale(0.7, 0.7);
+            transform: translate(-40%, -80%) rotate(-40deg) scale(0.7, 0.7);
+        }
+        
+        .style3:hover img:nth-child(6) {
+            -ms-transform: translate(-30%, -60%) rotate(-30deg) scale(0.8, 0.8);
+            transform: translate(-30%, -60%) rotate(-30deg) scale(0.8, 0.8);
+        }
+        
+        .style3:hover img:nth-child(7) {
+            -ms-transform: translate(-20%, -40%) rotate(-20deg) scale(0.9, 0.9);
+            transform: translate(-20%, -40%) rotate(-20deg) scale(0.9, 0.9);
+        }
+        
+        .style3:hover img:nth-child(8) {
+            -ms-transform: translate(-10%, -20%) rotate(-10deg);
+            transform: translate(-10%, -20%) rotate(-10deg);
+        }
+        
+        .style3:hover img:nth-child(9) {
+            -ms-transform: scale(1.1, 1.1);
+            transform: scale(1.1, 1.1);
+        }
+        </style>
+    </section>
+    <!-- 图片展开特效4 -->
+    <section class="code-wrap">
+        <div class="css-live-wrap">
+            <summary>图片展开特效4</summary>
+            <summary>rotate&translate</summary>
+            <div class="tab-photo style4">
+                <img src="img/img1.jpg">
+                <img src="img/img2.jpg">
+                <img src="img/img3.jpg">
+                <img src="img/img4.jpg">
+                <img src="img/img5.jpg">
+            </div>
+        </div>
+        <style class="code" contenteditable="false">
+        /*style4*/
+        
+        .style4:hover img:nth-child(1) {
+            -ms-transform: translate(0, 50%) rotate(-20deg);
+            transform: translate(0, 50%) rotate(-20deg);
+        }
+        
+        .style4:hover img:nth-child(2) {
+            -ms-transform: translate(50%, 0) rotate(-20deg);
+            transform: translate(50%, 0) rotate(-20deg);
+        }
+        
+        .style4:hover img:nth-child(3) {
+            -ms-transform: translate(0, -50%) rotate(-20deg);
+            transform: translate(0, -50%) rotate(-20deg);
+        }
+        
+        .style4:hover img:nth-child(4) {
+            -ms-transform: translate(-50%, 0) rotate(-20deg);
+            transform: translate(-50%, 0) rotate(-20deg);
+        }
+        
+        .style4:hover img:nth-child(5) {
+            -ms-transform: scale(1.1, 1.1) rotate(-20deg);
+            transform: scale(1.1, 1.1) rotate(-20deg);
+        }
+        </style>
+    </section>
+    <!-- 图片展开特效5 -->
+    <section class="code-wrap">
+        <div class="css-live-wrap">
+            <summary>图片展开特效5</summary>
+            <div class="tab-photo style5">
+                <img src="img/img1.jpg">
+                <img src="img/img2.jpg">
+                <img src="img/img3.jpg">
+                <img src="img/img4.jpg">
+                <img src="img/img5.jpg">
+                <img src="img/img6.jpg">
+                <img src="img/img7.jpg">
+                <img src="img/img1.jpg">
+                <img src="img/img2.jpg">
+            </div>
+        </div>
+        <style class="code" contenteditable="false">
+        /*style5*/
+        
+        .style5:hover img:nth-child(1) {
+            -ms-transform: translate(-20%, -85%) scale(0.8, 0.8) rotate(-20deg);
+            transform: translate(-20%, -85%) scale(0.8, 0.8) rotate(-20deg);
+        }
+        
+        .style5:hover img:nth-child(2) {
+            -ms-transform: translate(-80%, 45%) scale(0.8, 0.8) rotate(-20deg);
+            transform: translate(-80%, 45%) scale(0.8, 0.8) rotate(-20deg);
+        }
+        
+        .style5:hover img:nth-child(3) {
+            -ms-transform: translate(20%, 85%) scale(0.8, 0.8) rotate(-20deg);
+            transform: translate(20%, 85%) scale(0.8, 0.8) rotate(-20deg);
+        }
+        
+        .style5:hover img:nth-child(4) {
+            -ms-transform: translate(80%, -45%) scale(0.8, 0.8) rotate(-20deg);
+            transform: translate(80%, -45%) scale(0.8, 0.8) rotate(-20deg);
+        }
+        
+        .style5:hover img:nth-child(5) {
+            -ms-transform: translate(-100%, -40%) scale(0.8, 0.8) rotate(-20deg);
+            transform: translate(-100%, -40%) scale(0.8, 0.8) rotate(-20deg);
+        }
+        
+        .style5:hover img:nth-child(6) {
+            -ms-transform: translate(100%, 40%) scale(0.8, 0.8) rotate(-20deg);
+            transform: translate(100%, 40%) scale(0.8, 0.8) rotate(-20deg);
+        }
+        
+        .style5:hover img:nth-child(7) {
+            -ms-transform: translate(60%, -130%) scale(0.8, 0.8) rotate(-20deg);
+            transform: translate(60%, -130%) scale(0.8, 0.8) rotate(-20deg);
+        }
+        
+        .style5:hover img:nth-child(8) {
+            -ms-transform: translate(-60%, 130%) scale(0.8, 0.8) rotate(-20deg);
+            transform: translate(-60%, 130%) scale(0.8, 0.8) rotate(-20deg);
+        }
+        
+        .style5:hover img:nth-child(9) {
+            -ms-transform: scale(1.2, 1.2) rotate(-20deg);
+            transform: scale(1.2, 1.2) rotate(-20deg);
+        }
+        </style>
+    </section>
+    <!-- 图片展开特效6 -->
+    <section class="code-wrap">
+        <div class="css-live-wrap">
+            <summary>图片展开特效6</summary>
+            <summary>rotate&translate</summary>
+            <div class="tab-photo style6">
+                <img src="img/img1.jpg">
+                <img src="img/img2.jpg">
+                <img src="img/img3.jpg">
+                <img src="img/img4.jpg">
+                <img src="img/img5.jpg">
+            </div>
+        </div>
+        <style class="code" contenteditable="false">
+        /*style6*/
+        
+        .style6:hover img:nth-child(1) {
+            -ms-transform: translate(0, -60%) scale(0.3, 0.3);
+            transform: translate(0, -60%) scale(0.3, 0.3);
+        }
+        
+        .style6:hover img:nth-child(2) {
+            -ms-transform: translate(0, -40%) scale(0.5, 0.5);
+            transform: translate(0, -40%) scale(0.5, 0.5);
+        }
+        
+        .style6:hover img:nth-child(3) {
+            -ms-transform: translate(0, -20%) scale(0.7, 0.7);
+            transform: translate(0, -20%) scale(0.7, 0.7);
+        }
+        
+        .style6:hover img:nth-child(4) {
+            -ms-transform: scale(0.9, 0.9);
+            transform: scale(0.9, 0.9);
+        }
+        
+        .style6:hover img:nth-child(5) {
+            -ms-transform: translate(0, 20%) scale(1.1, 1.1);
+            transform: translate(0, 20%) scale(1.1, 1.1);
+        }
+        </style>
+    </section>
+    <!-- 图片展开特效7 -->
+    <section class="code-wrap">
+        <div class="css-live-wrap">
+            <summary>图片展开特效7</summary>
+            <summary>rotate&translate</summary>
+            <div class="tab-photo style7">
+                <img src="img/img1.jpg">
+                <img src="img/img2.jpg">
+                <img src="img/img3.jpg">
+                <img src="img/img4.jpg">
+                <img src="img/img5.jpg">
+                <img src="img/img6.jpg">
+                <img src="img/img7.jpg">
+                <img src="img/img1.jpg">
+                <img src="img/img2.jpg">
+            </div>
+        </div>
+        <style class="code" contenteditable="false">
+        /*style7*/
+        
+        .style7:hover img:nth-child(1) {
+            -ms-transform: translate(20%, -80%) scale(0.2, 0.2) rotate(-80deg);
+            transform: translate(20%, -80%) scale(0.2, 0.2) rotate(-80deg);
+        }
+        
+        .style7:hover img:nth-child(2) {
+            -ms-transform: translate(30%, -60%) scale(0.4, 0.4) rotate(-60deg);
+            transform: translate(30%, -60%) scale(0.4, 0.4) rotate(-60deg);
+        }
+        
+        .style7:hover img:nth-child(3) {
+            -ms-transform: translate(40%, -40%) scale(0.6, 0.6) rotate(-40deg);
+            transform: translate(40%, -40%) scale(0.6, 0.6) rotate(-40deg);
+        }
+        
+        .style7:hover img:nth-child(4) {
+            -ms-transform: translate(50%, -20%) scale(0.8, 0.8) rotate(-20deg);
+            transform: translate(50%, -20%) scale(0.8, 0.8) rotate(-20deg);
+        }
+        
+        .style7:hover img:nth-child(5) {
+            -ms-transform: translate(-20%, -80%) scale(0.2, 0.2) rotate(80deg);
+            transform: translate(-20%, -80%) scale(0.2, 0.2) rotate(80deg);
+        }
+        
+        .style7:hover img:nth-child(6) {
+            -ms-transform: translate(-30%, -60%) scale(0.4, 0.4) rotate(60deg);
+            transform: translate(-30%, -60%) scale(0.4, 0.4) rotate(60deg);
+        }
+        
+        .style7:hover img:nth-child(7) {
+            -ms-transform: translate(-40%, -40%) scale(0.6, 0.6) rotate(40deg);
+            transform: translate(-40%, -40%) scale(0.6, 0.6) rotate(40deg);
+        }
+        
+        .style7:hover img:nth-child(8) {
+            -ms-transform: translate(-50%, -20%) scale(0.8, 0.8) rotate(20deg);
+            transform: translate(-50%, -20%) scale(0.8, 0.8) rotate(20deg);
+        }
+        
+        .style7:hover img:nth-child(9) {
+            -ms-transform: translate(0, 20%) scale(1.1, 1.1);
+            transform: translate(0, 20%) scale(1.1, 1.1);
+        }
+        </style>
+    </section>
+    <!-- 图片展开特效8 -->
+    <section class="code-wrap">
+        <div class="css-live-wrap">
+            <summary>图片展开特效8</summary>
+            <summary>rotate&translate&scale</summary>
+            <div class="tab-photo style8">
+                <img src="img/img1.jpg">
+                <img src="img/img2.jpg">
+                <img src="img/img3.jpg">
+                <img src="img/img4.jpg">
+                <img src="img/img5.jpg">
+                <img src="img/img6.jpg">
+                <img src="img/img7.jpg">
+                <img src="img/img1.jpg">
+                <img src="img/img2.jpg">
+            </div>
+        </div>
+        <style class="code" contenteditable="false">
+        /*style8*/
+        
+        .style8 {
+            perspective: 500px;
+        }
+        
+        .style8:hover img:nth-child(1) {
+            -ms-transform: translate(0, 75%) scale(0.7, 0.7) rotateX(10deg);
+            transform: translate(0, 75%) scale(0.7, 0.7) rotateX(10deg);
+        }
+        
+        .style8:hover img:nth-child(2) {
+            -ms-transform: translate(72%, 75%) scale(0.7, 0.7) rotateX(10deg);
+            transform: translate(72%, 75%) scale(0.7, 0.7) rotateX(10deg);
+        }
+        
+        .style8:hover img:nth-child(3) {
+            -ms-transform: translate(-72%, 75%) scale(0.7, 0.7) rotateX(10deg);
+            transform: translate(-72%, 75%) scale(0.7, 0.7) rotateX(10deg);
+        }
+        
+        .style8:hover img:nth-child(4) {
+            -ms-transform: translate(-72%, 0) scale(0.7, 0.7) rotateX(10deg);
+            transform: translate(-72%, 0) scale(0.7, 0.7) rotateX(10deg);
+        }
+        
+        .style8:hover img:nth-child(5) {
+            -ms-transform: translate(72%, 0) scale(0.7, 0.7) rotateX(10deg);
+            transform: translate(72%, 0) scale(0.7, 0.7) rotateX(10deg);
+        }
+        
+        .style8:hover img:nth-child(6) {
+            -ms-transform: translate(72%, -70%) scale(0.7, 0.7) rotateX(10deg);
+            transform: translate(72%, -70%) scale(0.7, 0.7) rotateX(10deg);
+        }
+        
+        .style8:hover img:nth-child(7) {
+            -ms-transform: translate(-72%, -70%) scale(0.7, 0.7) rotateX(10deg);
+            transform: translate(-72%, -70%) scale(0.7, 0.7) rotateX(10deg);
+        }
+        
+        .style8:hover img:nth-child(8) {
+            -ms-transform: translate(0, -70%) scale(0.7, 0.7) rotateX(10deg);
+            transform: translate(0, -70%) scale(0.7, 0.7) rotateX(10deg);
+        }
+        
+        .style8:hover img:nth-child(9) {
+            -ms-transform: scale(0.7, 0.7) rotateX(10deg);
+            transform: scale(0.7, 0.7) rotateX(10deg);
+        }
+        </style>
+    </section>
+</body>
+
+</html>

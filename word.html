@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="renderer" content="webkit">
+    <link rel="stylesheet" href="common.css">
+    <title>css3 文字特效</title>
+    <style type="text/css">
+    /**/
+    
+    .rw-sentence {
+        font-family: 'Bree Serif';
+        text-align: left;
+        text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.8);
+        margin-left: 200px;
+        margin-top: 135px;
+    }
+    
+    .rw-sentence span {
+        color: #444;
+        font-size: 200%;
+        font-weight: normal;
+    }
+    
+    .rw-words {
+        display: inline;
+        text-indent: 10px;
+    }
+    
+    .rw-words span {
+        position: absolute;
+        opacity: 0;
+        overflow: hidden;
+        color: #6b969d;
+    }
+    
+    .rw-words span:nth-child(2) {
+        animation-delay: 3s;
+        color: #6b889d;
+    }
+    
+    .rw-words span:nth-child(3) {
+        animation-delay: 6s;
+        color: #6b739d;
+    }
+    
+    .rw-words span:nth-child(4) {
+        animation-delay: 9s;
+        color: #7a6b9d;
+    }
+    
+    .rw-words span:nth-child(5) {
+        animation-delay: 12s;
+        color: #8d6b9d;
+    }
+    
+    .rw-words span:nth-child(6) {
+        animation-delay: 15s;
+        color: #9b6b9d;
+    }
+    </style>
+</head>
+
+<body>
+    <!-- 链接 -->
+    <div class="container">
+        <header>
+            <h1>demo <span>with CSS Animations</span></h1>
+            <nav class="codrops-demos">
+                <a class="current-demo" href="word.html">word Demo</a>
+                <a href="photo.html">photo Demo</a>
+                <a href="shape.html">shape Demo</a>
+            </nav>
+        </header>
+    </div>
+    <!-- 文字样式 上下轮播 -->
+    <section class="code-wrap">
+        <div class="css-live-wrap">
+            <summary>文字上下轮播</summary>
+            <summary>利用 opacity 和 translateY实现</summary>
+            <div class="rw-sentence">
+                <span>Real poetry is like</span>
+                <br />
+                <span>creating beautiful butterflies</span>
+                <br />
+                <span>with a silent touch of</span>
+                <div class="rw-words rw-words-1">
+                    <span>spice</span>
+                    <span>colors</span>
+                    <span>happiness</span>
+                    <span>wonder</span>
+                    <span>sugar</span>
+                    <span>happiness</span>
+                </div>
+            </div>
+        </div>
+        <style class="code" contenteditable="false">
+        .rw-words-1 span {
+            animation: rotateWord 18s linear infinite 0s;
+        }
+        
+        @keyframes rotateWord {
+            2% {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            5% {
+                opacity: 1;
+                transform: translateY(0px);
+            }
+            17% {
+                opacity: 1;
+                transform: translateY(0px);
+            }
+            20% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+        </style>
+    </section>
+    <!-- 文字样式2 -->
+    <section class="code-wrap">
+        <div class="css-live-wrap">
+            <summary>文字渐显渐隐</summary>
+            <summary>利用 opacity 和 height/width</summary>
+            <div class="rw-sentence">
+                <span class="inline-element">Real poetry is like</span>
+                <span>creating</span>
+                <div class="rw-words rw-words-2 inline-element">
+                    <span>breathtaking moments</span>
+                    <span>lovely sounds</span>
+                    <span>incredible magic</span>
+                    <span>unseen experiences</span>
+                    <span>happy feelings</span>
+                    <span>beautiful butterflies</span>
+                </div>
+                <span>with a silent touch of</span>
+                <div class="rw-words rw-words-3">
+                    <span>sugar</span>
+                    <span>spice</span>
+                    <span>colors</span>
+                    <span>happiness</span>
+                    <span>wonder</span>
+                    <span>happiness</span>
+                </div>
+            </div>
+        </div>
+        <style class="code" contenteditable="false">
+        .rw-words-2 span {
+            animation: rotateWordsFirst 18s linear infinite;
+        }
+        
+        .rw-words-3 span {
+            animation: rotateWordsSecond 18s linear infinite;
+        }
+        
+        @keyframes rotateWordsFirst {
+            0% {
+                opacity: 1;
+                height: 0px;
+            }
+            8% {
+                opacity: 1;
+                height: 60px;
+            }
+            19% {
+                opacity: 1;
+                height: 60px;
+            }
+            25% {
+                opacity: 0;
+                height: 60px;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+        
+        @keyframes rotateWordsSecond {
+            0% {
+                opacity: 1;
+                width: 0px;
+            }
+            10% {
+                opacity: 0.3;
+                width: 0px;
+            }
+            20% {
+                opacity: 1;
+                width: 100%;
+            }
+            27% {
+                opacity: 0;
+                width: 100%;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+        </style>
+    </section>
+    <!-- 文字样式3 -->
+    <section class="code-wrap">
+        <div class="css-live-wrap">
+            <summary>文字坠落效果</summary>
+            <summary>利用 opacity 和 rotate translateY</summary>
+            <div class="rw-sentence">
+                <span class="inline-element">Real poetry is like</span>
+                <span class="inline-element">creating beautiful butterflies</span>
+                <span>with a silent touch of</span>
+                <div class="rw-words rw-words-4">
+                    <span>spice</span>
+                    <span>colors</span>
+                    <span>happiness</span>
+                    <span>wonder</span>
+                    <span>sugar</span>
+                    <span>happiness</span>
+                </div>
+            </div>
+        </div>
+        <style class="code" contenteditable="false">
+        .rw-words-4 span {
+            transform-origin: 10% 75%;
+            animation: rotateWord2 18s linear infinite;
+        }
+        
+        @keyframes rotateWord2 {
+            0% {
+                opacity: 0;
+            }
+            5% {
+                opacity: 1;
+            }
+            17% {
+                opacity: 1;
+                transform: rotate(0deg);
+            }
+            19% {
+                opacity: 1;
+                transform: rotate(98deg);
+            }
+            21% {
+                opacity: 1;
+                transform: rotate(86deg);
+            }
+            23% {
+                opacity: 1;
+                transform: translateY(85px) rotate(83deg);
+            }
+            25% {
+                opacity: 0;
+                transform: translateY(170px) rotate(80deg);
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+        </style>
+    </section>
+    <!-- 文字刷新效果 -->
+    <section class="code-wrap">
+        <div class="css-live-wrap">
+            <summary>文字刷新效果</summary>
+            <div class="rw-sentence">
+                <div class="rw-words rw-words-5">
+                    <span>beautiful websites</span>
+                    <span>interesting apps</span>
+                    <span>impactful identities</span>
+                    <span>working strategies</span>
+                    <span>incredible gadgets</span>
+                    <span>intelligent systems</span>
+                </div>
+            </div>
+        </div>
+        <style class="code" contenteditable="false">
+        .rw-words-5 span {
+            font-size: 50px;
+            white-space: nowrap;
+            animation: rotateWordsthird 18s ease-in infinite;
+        }
+        
+        @keyframes rotateWordsthird {
+            0% {
+                opacity: 0;
+                animation-timing-function: ease-in;
+                width: 0px;
+            }
+            5% {
+                opacity: 1;
+                animation-timing-function: ease-out;
+                width: 100%;
+            }
+            17% {
+                opacity: 1;
+            }
+            20% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+        </style>
+    </section>
+    <!-- 文字由大变小 -->
+    <section class="code-wrap">
+        <div class="css-live-wrap">
+            <summary>文字由大变小</summary>
+            <div class="rw-sentence perspective">
+                <div class="rw-words rw-words-6">
+                    <span>that captivate your users</span>
+                    <span>that create huge revenue</span>
+                    <span>that make you stand out</span>
+                    <span>that will push you forward</span>
+                    <span>that make your life easy</span>
+                    <span>that automatize processes</span>
+                </div>
+            </div>
+        </div>
+        <style class="code" contenteditable="false">
+        .perspective {
+            perspective: 800px;
+        }
+        
+        .rw-words-6 span {
+            font-size: 40px;
+            animation: rotateWordsFour 18s linear infinite;
+        }
+        
+        @keyframes rotateWordsFour {
+            0% {
+                opacity: 0;
+                transform: translateZ(600px) translateX(80px);
+            }
+            8% {
+                opacity: 1;
+                transform: translateZ(0px) translateX(0px);
+            }
+            17% {
+                opacity: 1;
+            }
+            25% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+        </style>
+    </section>
+    <!-- 文字转动入场 -->
+    <section class="code-wrap">
+        <div class="css-live-wrap">
+            <summary>文字转动入场</summary>
+            <div class="rw-sentence perspective">
+                <div class="rw-words rw-words-7">
+                    <span>share</span>
+                    <span>make</span>
+                    <span>build</span>
+                    <span>enjoy</span>
+                    <span>create</span>
+                    <span>invent</span>
+                </div>
+            </div>
+        </div>
+        <style class="code" contenteditable="false">
+        .rw-words-7 {
+            position: absolute;
+            height: 80px;
+            background-color: yellow;
+            width: 200px;
+        }
+        
+        .rw-words-7 span {
+            font-size: 50px;
+            color: transparent;
+            text-shadow: 0px 0px 80px rgba(255, 255, 255, 1);
+            opacity: 0;
+            animation: rotateWordFive 18s linear infinite;
+        }
+        
+        @keyframes rotateWordFive {
+            0% {
+                opacity: 0;
+                animation-timing-function: ease-in;
+                transform: translateY(-200px) translateZ(300px) rotateY(-120deg);
+            }
+            5% {
+                opacity: 1;
+                animation-timing-function: ease-out;
+                transform: translateY(0px) translateZ(0px) rotateY(0deg);
+            }
+            6% {
+                text-shadow: 0px 0px 0px rgba(255, 255, 255, 1);
+                color: #000;
+            }
+            17% {
+                opacity: 1;
+                text-shadow: 0px 0px 0px rgba(255, 255, 255, 1);
+                color: #000;
+            }
+            20% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+        </style>
+    </section>
+    <a class="linkUrl" href="https://sanwen8.cn/p/25filnj.html">animation7个参数</a>
+</body>
+
+</html>
